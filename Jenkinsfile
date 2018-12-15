@@ -16,14 +16,14 @@ pipeline {
         docker {
           image 'qnib/pytest'
         }
-        steps {
+      }
+      steps {
           sh 'py.test --verbose --junit-xml test-report/results.xml sources/test_calc.py'
-        }
-        post {
+      }
+      post {
           always {
             junit 'test-reports/results.xml'
           }
-        }
       }
     }
   }
